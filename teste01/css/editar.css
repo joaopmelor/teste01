@@ -1,0 +1,16 @@
+#form-div {
+    width: 80%;
+}
+
+#fieldset-div {
+    display: flex;
+    flex-direction: row;
+}
+
+fieldset {
+    margin: 0 1.5px;
+}
+
+#enviar {
+    width: calc(60vw + 3px);
+}

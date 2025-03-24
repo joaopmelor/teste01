@@ -3,8 +3,8 @@
 
     $dbHost = 'localhost';
     $dbUser = 'root';
-    $dbPassword = '1029384756';
-    $dbName = 'login';
+    $dbPassword = '';
+    $dbName = 'cadastro';
 
     $conexao = new mysqli($dbHost, $dbUser, $dbPassword, $dbName);
 
@@ -12,7 +12,7 @@
         echo "Erro ao definir charset: " . $conexao->error;
     }
 
-    if ($conexao->connect_errno) {
+    if (!$conexao) {
         echo "ERRO AO CONECTAR COM BANCO DE DADOS: " . $conexao->connect_error;
     }
 ?>
