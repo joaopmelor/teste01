@@ -8,6 +8,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <script src="https://kit.fontawesome.com/457a315592.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/consulta.css">
     <script src="../js/format.js"></script>
@@ -79,8 +85,8 @@
                         <td><?php echo $row['bairro']; ?></td>
                         <td><?php echo $row['estado']; ?></td>
                         <td><?php echo $row['cidade']; ?></td>
-                        <td><?php echo "<a href='../backend/editar.php?id=" . $row['id'] . "'>Editar</a>"?></td>
-                        <td><?php echo "<a href='../backend/deletar.php?id=" . $row['id'] . "'>Excluir</a>"?></td>
+                        <td class="icon-center"><?php echo "<a href='../backend/editar.php?id=" . $row['id'] . "'><i class='bi bi-pencil-square'></i></a>"?></td>
+                        <td class="icon-center"><?php echo "<a href='../backend/deletar.php?id=" . $row['id'] . "'><i class='bi bi-file-earmark-x'></i></a>"?></td>
                     </tr>
                 <?php endforeach; ?>
             </table>

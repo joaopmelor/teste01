@@ -53,9 +53,9 @@
                     <!-- Dados de endereço -->
                     <div class="inputForm">
                         <select name="tipo_endereco" id="tipo_endereco" class="form-input" value="<?= $user['tipo_endereco'] ?>" required>
-                            <option id="opaco" disabled value>Tipo de endereço</option>
-                            <option value="Residencial">Residencial</option>
-                            <option value="Comercial">Comercial</option>
+                            <option disabled value>Tipo de endereço</option>
+                            <option value="Residencial" <?= ($user['tipo_endereco'] == 'Residencial') ? 'selected' : '' ?>>Residencial</option>
+                            <option value="Comercial" <?= ($user['tipo_endereco'] == 'Comercial') ? 'selected' : '' ?>>Comercial</option>
                         </select>
                     </div>
                     <br>
@@ -64,7 +64,15 @@
                     </div>
                     <br>
                     <div class="inputForm">
-                        <input type="text" name="estado" id="estado" class="form-input" placeholder="Estado" value="<?= $user['estado'] ?>" required>
+                        <select name="estado" id="estado" class="form-input" value="<?= $user['estado'] ?>" required>
+                            <option disabled value>Estado</option>
+                            <?php 
+                                $estados = ["Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espírito Santo","Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins"];
+                                foreach ($estados as $estado) {
+                                    echo '<option value="' . $estado . '" ' . ($user['estado'] == $estado ? 'selected' : '') . '>' . $estado . '</option>';
+                                }
+                            ?>
+                        </select>
                     </div>
                     <br>
                     <div class="inputForm">

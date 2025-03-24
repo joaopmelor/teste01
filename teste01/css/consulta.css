@@ -44,18 +44,6 @@ table {
     background-color: #fff;
     border-collapse: collapse;
     width: 99%;
-
-    a {
-        color: #000;
-    }
-    
-    a:hover {
-        text-decoration: underline;
-    }
-    
-    a:visited {
-        color: #000;
-    }
 }
 
 tr:hover {
@@ -66,20 +54,38 @@ tr:hover {
         color: #fff;
     }
 
-    a {
+    i {
         color: #fff;
     }
 }
 
 th {
     text-align: center;
-    padding: 2px;
+    padding: 3px;
     color: #fa8f0a;
 }
 
 td {
     text-align: left;
-    padding: 2px;
+    padding: 3px;
+}
+
+i {
+    color: #000;
+    font-size: 140%;
+}
+
+i:visited {
+    color: #000;
+}
+
+.icon-center {
+    text-align: center;
+}
+
+.icon-center:hover {
+    background-color: #fa8f0a;
+    outline: #53159B solid 3px;
 }
 
 p {
