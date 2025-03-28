@@ -1,5 +1,5 @@
 <?php 
-include('../conexaoDB/conexao.php');
+include('conexaoDB/conexao.php');
 include('consultaSQL.php');
 
 if (isset($_GET['id'])) {

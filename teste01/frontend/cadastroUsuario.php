@@ -1,5 +1,5 @@
 <?php
-include('../conexaoDB/conexao.php');
+include('../backend/conexaoDB/conexao.php');
 $conexao->close();
 ?>
 
@@ -8,9 +8,9 @@ $conexao->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/cadastroUsuario.css">
-    <script src="../js/format.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cadastroUsuario.css">
+    <script src="../backend/js/format.js"></script>
     <title>Cadastro teste01</title>
 </head>
 <body>

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/cadastroEndereco.css">
-    <link rel="stylesheet" href="../css/editar.css">
-    <script src="../js/format.js"></script>
-    <script src="../js/apiCep.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cadastroEndereco.css">
+    <link rel="stylesheet" href="css/editar.css">
+    <script src="../backend/js/format.js"></script>
+    <script src="../backend/js/apiCep.js" defer></script>
     <title>Editar Cadastro teste01</title>
 </head>
 <body>

@@ -1,5 +1,5 @@
 <?php
-include('../conexaoDB/conexao.php');
+include('../backend/conexaoDB/conexao.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -20,10 +20,10 @@ $conexao->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/cadastroEndereco.css">
-    <script src="../js/format.js" defer></script>
-    <script src="../js/apiCep.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cadastroEndereco.css">
+    <script src="../backend/js/format.js" defer></script>
+    <script src="../backend/js/apiCep.js" defer></script>
     <title>Cadastro teste01</title>
 </head>
 <body>

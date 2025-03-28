@@ -1,0 +1,13 @@
+.dois {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    .inputForm {
+        width: 40%;
+    }
+
+    .form-input {
+        width: 88%;
+    }
+}

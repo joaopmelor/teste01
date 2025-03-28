@@ -1,5 +1,5 @@
 <?php
-include('../conexaoDB/conexao.php');
+include('conexaoDB/conexao.php');
 include('consultaSQL.php');
 
 // Inicializar array de busca

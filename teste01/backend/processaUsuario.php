@@ -1,6 +1,6 @@
 <?php
-include("../conexaoDB/conexao.php");
-include("consultaSQL.php");
+include('conexaoDB/conexao.php');
+include('consultaSQL.php');
 
 // Receber valores do formulário de cadastro do usuário
 $nome = $_POST['nome'];

@@ -1,5 +1,5 @@
 <?php
-include('../conexaoDB/conexao.php');
+include('conexaoDB/conexao.php');
 include('consultaSQL.php');
 
 // Verificar se ID foi recebido para deletar usuário

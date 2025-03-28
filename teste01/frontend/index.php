@@ -1,5 +1,5 @@
 <?php
-    include('../conexaoDB/conexao.php');
+    include('../backend/conexaoDB/conexao.php');
     include('../backend/busca.php');
 ?>
 
@@ -14,9 +14,9 @@
 
     <script src="https://kit.fontawesome.com/457a315592.js" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/consulta.css">
-    <script src="../js/format.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/consulta.css">
+    <script src="../backend/js/format.js"></script>
     <title>Consulta teste 01</title>
 </head>
 <body>
