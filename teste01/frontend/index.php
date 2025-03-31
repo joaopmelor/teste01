@@ -50,11 +50,11 @@
         <div id="table-div">
             <table>
                 <tr>
-                    <th>ID</th>
+                    <th>Nome</th>
                     <th>Nome Social</th>
                     <th>CPF</th>
-                    <th>Nome do pai</th>
-                    <th>Nome da mãe</th>
+                    <th>Pai</th>
+                    <th>Mãe</th>
                     <th>Telefone</th>
                     <th>E-mail</th>
                     <th>Tipo de endereço</th>
