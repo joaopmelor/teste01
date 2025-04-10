@@ -2,14 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
-    a {
-        font-family: "Tahoma", sans-serif;
-    }
 }
 
 html {
-    font-family: "Tahoma", sans-serif;
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
     overflow-x: hidden;
 }
 
@@ -18,17 +14,18 @@ a {
 }
 
 body {
-    background-color: #53159B;
+    background-color: #fff;
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 #form-div {
-    background-color: #fa8f0a;
+    background-color: #ddbfff;
     width: 50%;
     height: 90%;
     min-height: 60%;
@@ -36,7 +33,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 6px 6px 12px 4px #202;
+    box-shadow: 6px 6px 18px 4px #352435cc;
     border-radius: 15px;
     z-index: 5;
 }
@@ -52,18 +49,18 @@ fieldset {
     width: 30vw;
     justify-items: center;
     padding: 17px 0 30px 0;
-    background-color: #fff;
+    background-color: #f1f2f3;
 }
 
 legend {
-    border: 3px solid  #fa8f0a;
-    color: #fa8f0a;
+    color: #6a3f9b;
     padding: 4px;
     width: 9vw;
-    background-color: #fff;
+    background-color: #f1f2f3;
     text-align: center;
     font-weight: bold;
     font-size: 21px;
+    border-radius: 15px;
 }
 
 .inputForm {
@@ -77,12 +74,12 @@ legend {
     border: none;
     margin: 5px 0;
     font-size: 18px;
-    border: 3px solid #fa8f0a;
+    border: 1px solid #ddbfff;
 }
 
 .form-input:focus {
     outline: none;
-    border: 3px solid #53159B;
+    border: 1px solid #53159B;
 }
 
 #consultar-div, #enviar-div, #cadastro-div {
@@ -95,15 +92,38 @@ legend {
     border: none;
     padding: 4px;
     margin-top: 3px;
-    background-color: #fff;
-    color: #fa8f0a;
+    background-color: #6a3f9b;
+    color: #f1f2f3;
     width: 30vw;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
+    transition: background 0.2s, color 0.2s;
 }
 
 #consultar:hover, #enviar:hover {
     background-color: #53159B;
     color: #fff;
+}
+
+input:read-only {
+    background-color: #f1f2f3;
+    border: 1px solid #f1f2f3;
+    color: #0009;
+}
+
+#home-link i {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 0.5rem;
+    font-size: 3rem;
+    color: #6a3f9b;
+    transition: color 0.2s, transform 0.2s;
+}
+
+#home-link i:hover {
+    color: #53159B;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
 }

@@ -36,14 +36,13 @@ $stmt->bind_param("ssssssssi", $tipo_endereco, $cep, $rua, $numero, $compl, $bai
 $salvar = $stmt->execute();
 
 if ($salvar) {
-    echo "Endereço salvo com sucesso!";
+    // Redirecionar com sucesso
+    header('Location: ../frontend/cadastroEndereco.php?status=sucesso');
 } else {
-    echo "Erro ao salvar endereço: " . $stmt->error;
+    // Redirecionar com erro
+    header('Location: ../frontend/cadastroEndereco.php?status=erro');
 }
 
 $stmt->close();
-
-header('Location: ../frontend/index.php');
-
 $conexao->close();
 ?>

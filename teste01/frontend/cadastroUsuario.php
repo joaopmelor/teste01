@@ -8,14 +8,44 @@ $conexao->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cadastroUsuario.css">
-    <script src="../backend/js/format.js"></script>
+    <link rel="stylesheet" href="css/mensagem.css">
     <title>Cadastro teste01</title>
 </head>
-<body>
 
-<div id="form-div">
+<?php if (isset($_GET['status'])): ?>
+    <div id="mensagem-bg" style="display: flex;">
+        <div id="mensagem-fs">
+            <div id="mensagem">
+                <h4>Cadastro de usuário:</h4>
+                <p>
+                    <?php 
+                        if ($_GET['status'] == 'sucesso') {
+                            echo 'Usuário cadastrado com sucesso!';
+                        } else if ($_GET['status'] == 'erro') {
+                            echo 'Erro ao cadastrar o usuário.<br>Tente novamente.';
+                        }
+                    ?>
+                </p>
+                <?php
+                    if ($_GET['status'] == 'sucesso') {
+                        echo "<a href='../frontend/cadastroEndereco.php'><button id='btn-s'>Continuar</button></a>";
+                    } else if ($_GET['status'] == 'erro') {
+                        echo "<button id='btn-n'>Fechar</button>";
+                    }
+                ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+
+<body>
+    <div id="form-div">
         <form action="../backend/processaUsuario.php" method="POST">
             <fieldset>
                 <legend>Cadastro</legend>
@@ -54,6 +84,9 @@ $conexao->close();
         </form>
     </div>
 
+    <a id="home-link" href="../frontend/"><i class="bi bi-house-fill"></i></a>
 
+<script src="../backend/js/format.js" defer></script>
+<script src="../backend/js/mensagem.js" defer></script>
 </body>
 </html>

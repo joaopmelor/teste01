@@ -3,13 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/cadastroEndereco.css">
-    <link rel="stylesheet" href="css/editar.css">
-    <script src="../backend/js/format.js"></script>
-    <script src="../backend/js/apiCep.js" defer></script>
+    
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="../frontend/css/style.css">
+    <link rel="stylesheet" href="../frontend/css/cadastroEndereco.css">
+    <link rel="stylesheet" href="../frontend/css/editar.css">
+    <link rel="stylesheet" href="../frontend/css/mensagem.css">
     <title>Editar Cadastro teste01</title>
 </head>
+
+<?php if (isset($_GET['status'])): ?>
+    <div id="mensagem-bg" style="display: flex;">
+        <div id="mensagem-fs">
+            <div id="mensagem">
+                <h4>Alteração de dados:</h4>
+                <p>
+                    <?php 
+                        if ($_GET['status'] == 'sucesso') {
+                            echo 'Dados atualizados com sucesso!';
+                        } else if ($_GET['status'] == 'erro') {
+                            echo 'Erro ao atualizar os dados.<br>Tente novamente.';
+                        }
+                    ?>
+                </p>
+                <?php
+                    if ($_GET['status'] == 'sucesso') {
+                        echo "<a href='../frontend/index.php'><button id='btn-s'>Voltar para página inicial</button></a>";
+                    } else if ($_GET['status'] == 'erro') {
+                        echo "<button id='btn-n'>Fechar</button>";
+                    }
+                ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+
 <body>
     <div id="form-div">
         <form id="endereco-form" action="../backend/editar.php?id=<?= $user['id'] ?>" method="POST">
@@ -64,27 +94,19 @@
                     </div>
                     <br>
                     <div class="inputForm">
-                        <select name="estado" id="estado" class="form-input" value="<?= $user['estado'] ?>" required>
-                            <option disabled value>Estado</option>
-                            <?php 
-                                $estados = ["Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espírito Santo","Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins"];
-                                foreach ($estados as $estado) {
-                                    echo '<option value="' . $estado . '" ' . ($user['estado'] == $estado ? 'selected' : '') . '>' . $estado . '</option>';
-                                }
-                            ?>
-                        </select>
+                        <input type="text" name="estado" id="estado" class="form-input" placeholder="Estado" value="<?= $user['estado'] ?>" required readonly>
                     </div>
                     <br>
                     <div class="inputForm">
-                        <input type="text" name="cidade" id="cidade" class="form-input" placeholder="Cidade" value="<?= $user['cidade'] ?>" required>
+                        <input type="text" name="cidade" id="cidade" class="form-input" placeholder="Cidade" value="<?= $user['cidade'] ?>" required readonly>
                     </div>
                     <br>
                     <div class="inputForm">
-                        <input type="text" name="bairro" id="bairro" class="form-input" placeholder="Bairro" value="<?= $user['bairro'] ?>" required>
+                        <input type="text" name="bairro" id="bairro" class="form-input" placeholder="Bairro" value="<?= $user['bairro'] ?>" required readonly>
                     </div>
                     <br>
                     <div class="inputForm">
-                        <input type="text" name="rua" id="rua" class="form-input" placeholder="Rua" value="<?= $user['rua'] ?>" required>
+                        <input type="text" name="rua" id="rua" class="form-input" placeholder="Rua" value="<?= $user['rua'] ?>" required readonly>
                     </div>
                     <br>
                     <div class="dois">
@@ -103,5 +125,21 @@
             </div>
         </form>
     </div>
+
+    <div id="mensagem-bg">
+        <div id="mensagem-fs">
+            <div id="mensagem">
+                <h4>Mensagem:</h4>
+                <p>CEP inválido.</p>
+            </div>
+            <button id='btn-n'>Fechar</button>
+        </div>
+    </div>
+
+<a id="home-link" href="../frontend/"><i class="bi bi-house-fill"></i></a>
+
+<script src="../backend/js/format.js"></script>
+<script src="../backend/js/apiCep.js" defer></script>
+<script src="../backend/js/mensagem.js" defer></script>
 </body>
 </html>

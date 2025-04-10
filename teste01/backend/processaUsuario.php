@@ -18,14 +18,13 @@ $stmt->bind_param("sssssss", $nome, $nome_social, $cpf, $pai, $mae, $telefone, $
 $salvar = $stmt->execute();
 
 if ($salvar) {
-    echo "Usuário cadastrado com sucesso!";
+    // Redirecionar com sucesso
+    header('Location: ../frontend/cadastroUsuario.php?status=sucesso');
 } else {
-    echo "Erro ao cadastrar usuário: " . $stmt->error;
+    // Redirecionar com erro
+    header('Location: ../frontend/cadastroUsuario.php?status=erro');
 }
 
 $stmt->close();
-
-header('Location: ../frontend/cadastroEndereco.php');
-
 $conexao->close();
 ?>

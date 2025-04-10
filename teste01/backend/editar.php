@@ -47,12 +47,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($stmtEndereco === false) {
         die('Erro ao preparar a consulta: ' . $conexao->error);
     } else {
-    $stmtEndereco->bind_param('sssissssi', $tipo_endereco, $cep, $rua, $numero, $compl, $bairro, $estado, $cidade, $id);
-    $stmtEndereco->execute();
+        $stmtEndereco->bind_param('sssissssi', $tipo_endereco, $cep, $rua, $numero, $compl, $bairro, $estado, $cidade, $id);
+        $stmtEndereco->execute();
     }
 
-    // Redirecionar de volta para a página principal após salvar as alterações
-    header('Location: ../frontend/index.php');
+    // Verificar se as alterações foram bem-sucedidas
+    if ($stmtUsuario->affected_rows > 0 || $stmtEndereco->affected_rows > 0) {
+       // Redirecionar com sucesso
+       header('Location: ../backend/editar.php?id=' . $id . '&status=sucesso');
+    } else {
+       // Redirecionar com erro
+       header('Location: ../backend/editar.php?id=' . $id . '&status=erro');
+    }
+
     exit();
 }
 

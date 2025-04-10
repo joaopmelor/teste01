@@ -20,12 +20,43 @@ $conexao->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cadastroEndereco.css">
-    <script src="../backend/js/format.js" defer></script>
-    <script src="../backend/js/apiCep.js" defer></script>
+    <link rel="stylesheet" href="css/mensagem.css">
     <title>Cadastro teste01</title>
 </head>
+
+<?php if (isset($_GET['status'])): ?>
+    <div id="mensagem-bg" style="display: flex;">
+        <div id="mensagem-fs">
+            <div id="mensagem">
+                <h4>Cadastro de endereço:</h4>
+                <p>
+                    <?php 
+                        if ($_GET['status'] == 'sucesso') {
+                            echo 'Endereço cadastrado com sucesso!';
+                        } else if ($_GET['status'] == 'erro') {
+                            echo 'Erro ao cadastrar endereço.<br>Tente novamente.';
+                        }
+                    ?>
+                </p>
+                <?php
+                    if ($_GET['status'] == 'sucesso') {
+                        echo "<a href='../frontend/index.php'><button id='btn-s'>Voltar para página inicial</button></a>";
+                    } else if ($_GET['status'] == 'erro') {
+                        echo "<button id='btn-n'>Fechar</button>";
+                    }
+                ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+
+
 <body>
     <div id="form-div">
         <form id="endereco-form" action="../backend/processaEndereco.php" method="POST">
@@ -44,36 +75,7 @@ $conexao->close();
                 </div>
                 <br>
                 <div class="inputForm">
-                    <select name="estado" id="estado" class="form-input" required>
-                        <option id="disabled" disabled selected value>Estado</option>
-                        <option value="Distrito Federal">Distrito Federal</option>
-                        <option value="Acre">Acre</option>
-                        <option value="Alagoas">Alagoas</option>
-                        <option value="Amapá">Amapá</option>
-                        <option value="Amazonas">Amazonas</option>
-                        <option value="Bahia">Bahia</option>
-                        <option value="Ceará">Ceará</option>
-                        <option value="Espírito Santo">Espírito Santo</option>
-                        <option value="Goiás">Goiás</option>
-                        <option value="Maranhão">Maranhão</option>
-                        <option value="Mato Grosso">Mato Grosso</option>
-                        <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
-                        <option value="Minas Gerais">Minas Gerais</option>
-                        <option value="Pará">Pará</option>
-                        <option value="Paraíba">Paraíba</option>
-                        <option value="Paraná">Paraná</option>
-                        <option value="Pernambuco">Pernambuco</option>
-                        <option value="Piauí">Piauí</option>
-                        <option value="Rio de Janeiro">Rio de Janeiro</option>
-                        <option value="Rio Grande do Norte">Rio Grande do Norte</option>
-                        <option value="Rio Grande do Sul">Rio Grande do Sul</option>
-                        <option value="Rondônia">Rondônia</option>
-                        <option value="Roraima">Roraima</option>
-                        <option value="Santa Catarina">Santa Catarina</option>
-                        <option value="São Paulo">São Paulo</option>
-                        <option value="Sergipe">Sergipe</option>
-                        <option value="Tocantins">Tocantins</option>
-                    </select>
+                    <input type="text" name="estado" id="estado" class="form-input" placeholder="Estado" required>
                 </div>
                 <br>
                 <div class="inputForm">
@@ -104,5 +106,21 @@ $conexao->close();
             </div>
         </form>
     </div>
+
+    <div id="mensagem-bg">
+        <div id="mensagem-fs">
+            <div id="mensagem">
+                <h4>Mensagem:</h4>
+                <p>CEP inválido.</p>
+            </div>
+            <button>Fechar</button>
+        </div>
+    </div>
+
+    <a id="home-link" href="../frontend/"><i class="bi bi-house-fill"></i></a>
+
+<script src="../backend/js/format.js" defer></script>
+<script src="../backend/js/apiCep.js" defer></script>
+<script src="../backend/js/mensagem.js" defer></script>
 </body>
 </html>

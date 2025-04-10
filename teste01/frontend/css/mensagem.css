@@ -1,0 +1,78 @@
+#mensagem-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0006;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+
+    #mensagem-fs {
+        background-color: #f1f2f3;
+        width: 20vw;
+        height: fit-content;
+        border-radius: 15px;
+
+        #mensagem {
+            top: 0;
+            width: 100%;
+            height: 80%;
+
+            h4 {
+                color: #6a3f9b;
+                font-weight: bold;
+                font-size: 21px;
+                width: 98%;
+                margin: auto;
+                text-align: left;
+                padding: 0.5em 0 0 0.5em;
+            }
+    
+            p {
+                width: 98%;
+                margin: auto;
+                border-bottom: #ddbfff solid 1px;
+                padding: 1em;
+            }
+        }
+
+        button {
+            padding: 4px;
+            width: 98%;
+            margin: 1%;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.2s, color 0.2s;
+            border: #6a3f9b solid 2px;
+        }
+
+        button:hover {
+            border: #53159B solid 2px;
+        }
+
+        #btn-s {
+            background-color: #6a3f9b;
+            color: #f1f2f3;
+        }
+
+        #btn-s:hover {
+            background-color: #53159B;
+            color: #fff;
+        }
+
+        #btn-n {
+            background-color: #f1f2f3;
+            color: #6a3f9b;
+        }
+
+        #btn-n:hover {
+            background-color: #fff;
+            color: #53159B;
+        }
+    }
+}

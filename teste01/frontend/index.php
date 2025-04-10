@@ -9,14 +9,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
     <script src="https://kit.fontawesome.com/457a315592.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/consulta.css">
-    <script src="../backend/js/format.js"></script>
     <title>Consulta teste 01</title>
 </head>
 <body>
@@ -53,8 +52,8 @@
                     <th>Nome</th>
                     <th>Nome Social</th>
                     <th>CPF</th>
-                    <th>Pai</th>
-                    <th>Mãe</th>
+                    <th>Nome do Pai</th>
+                    <th>Nome da Mãe</th>
                     <th>Telefone</th>
                     <th>E-mail</th>
                     <th>Tipo de endereço</th>
@@ -67,6 +66,7 @@
                     <th>Cidade</th>
                     <th>Editar</th>
                     <th>Excluir</th>
+                    <th>Histórico de endereços</th>
                 </tr>
                 <?php foreach ($busca as $row): ?>
                     <tr>
@@ -86,18 +86,25 @@
                         <td><?php echo $row['estado']; ?></td>
                         <td><?php echo $row['cidade']; ?></td>
                         <td class="icon-center"><?php echo "<a href='../backend/editar.php?id=" . $row['id'] . "'><i class='bi bi-pencil-square'></i></a>"?></td>
-                        <td class="icon-center"><?php echo "<a href='../backend/deletar.php?id=" . $row['id'] . "'><i class='bi bi-file-earmark-x'></i></a>"?></td>
+                        <td class="icon-center">
+                            <a href="../backend/deletar.php?id=<?=$row['id']?>" onclick="return confirm('Tem certeza que deseja excluir os dados de <?=($row['nome'])?>?')">
+                                <i class="bi bi-file-earmark-x"></i>
+                            </a>
+                        </td>
+                        <td class="icon-center"><?php echo "<a href='../frontend/historicoEndereco.php?id=" . $row['id'] . "'><i class='bi bi-hourglass-split'></i></a>"?></td>
                     </tr>
                 <?php endforeach; ?>
             </table>
         </div>
     </div>
 <?php else: ?>
-    <p>Nenhum usuário encontrado</p>
+    <p id="nenhum">Nenhum usuário encontrado</p>
 <?php endif; ?>
 <?php endif; ?>
 
 <?php $conexao->close(); ?>
 
+<script src="../backend/js/format.js"></script>
+<script src="../backend/js/scrollTabela.js"></script>
 </body>
 </html>

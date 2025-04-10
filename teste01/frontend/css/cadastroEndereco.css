@@ -11,3 +11,8 @@
         width: 88%;
     }
 }
+
+select:disabled {
+    background-color: #f1f2f3;
+    color: #000f;
+}

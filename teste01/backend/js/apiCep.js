@@ -13,22 +13,33 @@ cepInput.addEventListener("keyup", (e) => {
     if(inputValue.length === 9) {
         getAddress(inputValue);
     }
+
+    // Reabilitar campos quando cepInput estiver vazio
+    if (cepInput.value === "") {
+        enableAddressFields();
+    }
 });
 
 // Retornar CEP com API
 const getAddress = async (cep) => {
     cepInput.blur();
 
-    const apiUrl = `https://viacep.com.br/ws/${cep}/json/`
+    const apiUrl = `https://viacep.com.br/ws/${cep}/json/`;
 
-    const response = await fetch (apiUrl)
+    const response = await fetch (apiUrl);
 
-    const data = await response.json()
+    const data = await response.json();
 
     // Resetar formulário
     if(data.erro === "true") {
-        enderecoForm.reset()
-        // toggleMessage("CEP inválido.")
+        enderecoForm.reset();
+
+        // Exibir mensagem de CEP inválido
+        toggleMessage();
+
+        // Reabilitar campos quando formulário resetar
+        enableAddressFields();
+        
         return;
     }
 
@@ -37,15 +48,37 @@ const getAddress = async (cep) => {
     bairroInput.value = data.bairro;
     estadoInput.value = data.estado;
     cidadeInput.value = data.localidade;
+
+    // Desabilitar campos após formulário receber valores da API
+    disableAddressFields();
 };
 
-// const toggleMessage = (msg) => {
-//     const messageElement = document.querySelector("#message")
+// Função para desabilitar campos
+const disableAddressFields = () => {
+    ruaInput.setAttribute("readonly", "true");
+    bairroInput.setAttribute("readonly", "true");
+    estadoInput.setAttribute("readonly", "true");
+    cidadeInput.setAttribute("readonly", "true");
+};
 
-//     const messageElementText = document.querySelector("#message p")
-    
-//     messageElementText.innerText = msg
+// Função para habilitar campos
+const enableAddressFields = () => {
+    ruaInput.removeAttribute("readonly");
+    bairroInput.removeAttribute("readonly");
+    estadoInput.removeAttribute("readonly");
+    cidadeInput.removeAttribute("readonly");
+};
 
-//     fadeElement.classList.toggle("hide")
-//     messageElement.classList.toggle("hide")
-// }
+// Função para exibir e fechar mensagem de CEP inválido
+const toggleMessage = (msg) => {
+    const mensagemBackground = document.querySelector("#mensagem-bg");
+
+    // Exibir mensagem
+    mensagemBackground.style.display = "flex";
+
+    // Fechar mensagem
+    const closeButton = document.querySelector("#mensagem-bg button");
+    closeButton.addEventListener("click", () => {
+        mensagemBackground.style.display = "none";
+    });
+}

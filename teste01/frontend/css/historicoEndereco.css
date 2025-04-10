@@ -1,36 +1,35 @@
-#cadastro {
-    text-align: center;
-    color: #6a3f9b;
-    width: 14vw;
-    border: none;
-    padding: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
+h2 {
+    padding: 0.4rem 0.8rem;
+    background-color: #6a3f9b;
+    color: #f1f2f3;
+    margin-top: 16vh;
+    border-radius: 15px;
 }
 
-#cadastro:hover {
+h3 {
     color: #53159B;
+    margin-top: 0.7vh;
 }
 
 #table-bg {
-    position: absolute;
     width: 100vw;
-    min-height: 100vh;
-    padding: 1rem;
+    padding: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 100vh;
+    min-height: 60vh;
+    padding-top: 0;
+    padding-bottom: 20vh;
 }
 
 #table-div {
-    overflow-x: auto;
     width: 95%;
-    padding: 5vh 1rem 1rem 1rem;
+    padding: 1rem;
     background-color: #f1f2f3;
     border-radius: 15px;
     box-shadow: 6px 6px 18px 4px #352435cc;
+    max-height: 70vh;
+    overflow-y: auto;
 }
 
 table {
@@ -58,21 +57,12 @@ td {
     border-bottom: #6a3f9b solid 1px;
 }
 
-.icon-center i {
-    font-size: 1.3rem;
-    color: #000;
-    transition: color 0.2s;
-}
-
-.icon-center i:hover {
-    color: #53159B;
-}
-
 #nenhum {
     position: absolute;
-    color: #53159B;
+    padding: 0.4rem 0.8rem;
+    background-color: #6a3f9b;
+    color: #f1f2f3;
+    border-radius: 15px;
     font-size: 120%;
-    margin-top: 55vh;
-    z-index: 8;
     font-weight: bold;
 }
